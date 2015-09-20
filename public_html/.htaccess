@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    
+    RewriteEngine On
+
+    # Redirect Trailing Slashes...
+
+</IfModule>
+
+AuthType Basic
+AuthName "dev"
+AuthUserFile "/home/dynamoelectric/.htpasswd"
+require valid-user
