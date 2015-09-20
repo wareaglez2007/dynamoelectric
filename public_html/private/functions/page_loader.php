@@ -144,7 +144,7 @@ class page_loader{
                                 $page_link = basename($web_page, ".php");
                                    ?>
                         
-                    <li><a href="index.php?page=<?= $page_link ?>"><?= $page_link?></a></li>
+                    <li><a href="index.php?page=<?= $page_link ?>&title=<?= strtoupper($page_link);?>"><?= $page_link?></a></li>
 
                         <?php
                                 
