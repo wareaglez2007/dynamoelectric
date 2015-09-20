@@ -6,3 +6,8 @@
  * and open the template in the editor.
  */
 
+?>
+
+<div class="row">
+    <p>Home sweet home</p>
+</div>
