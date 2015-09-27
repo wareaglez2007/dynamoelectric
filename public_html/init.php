@@ -8,10 +8,15 @@
 // Report all errors except E_NOTICE
 error_reporting(E_ALL & ~E_NOTICE);
 
+define("TEST_ENV",FALSE);
 
+if(defined("TEST_ENV") && TEST_ENV){
+    include '/private/functions/page_loader.php';
+
+}else{
 //$_SERVER['DOCUMENT_ROOT']
-include '/private/functions/page_loader.php';
-
+include $_SERVER['DOCUMENT_ROOT'].'/private/functions/page_loader.php';
+}
 $head = new page_loader();
 //<--09/12/2015--This for the navigation links make the array in the same format
 $links =array(
@@ -113,7 +118,7 @@ $links =array(
         
         ),
         array("title"=>"Contact",
-                 "link"=>"page=contact&title=Contact"
+              "link"=>"page=contact&title=Contact"
         ),
     
         array("title"=>"Job Opportunities",
@@ -126,12 +131,41 @@ $links =array(
     
 );
 
-    $java_script =array(); //<-09/13/2015--HERE WHERE YOU CAN ADD THE JAVA SCRIPT FILE NAME. MAKE SURE TO ADD THE FILE UNDER assests/js
+    $java_script =array("owl.carousel.js"); //<-09/13/2015--HERE WHERE YOU CAN ADD THE JAVA SCRIPT FILE NAME. MAKE SURE TO ADD THE FILE UNDER assests/js
 
     $web_pages= array();
-    $css = array("bootstrap.min.css","font-awesome.min.css");
-    $external_script =array("https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js");
-    $cities = array("Beverly Hills","Burbank","Encino","Glendale");
+    $css = array("bootstrap.min.css","font-awesome.min.css", "main.css", "owl.carousel.css", "owl.theme.css");
+    $external_script =array();
+    $cities = array("Beverly Hills","Burbank","Encino","Glendale","Granada Hills", "Hancock park", "Hollywood", "La Canada", "La Crescenta", "Los Angeles", "Melrose",
+        "Mission Hills",
+        "Montrose",
+        "North Hills",
+        "Northridge",
+        "Oxnard",
+        "Pasadena",
+        "Porter Ranch",
+        "Resda",
+        "San Fernando",
+        "San Fernando Valley",
+        "Sanata Monica",
+        "Studio City",
+        "Thousand Oaks",
+        "Taluca Lake",
+        "West Hills",
+        "Woodland Hills");
+    
+    $company_info=array(
+                  array("email"=>"info@dynamoelectricinc.com",
+                  "phone"=>"310-303-2233",
+                  "Fax"=>"818-363-3336",
+                  "Company Address"=>"16008 Celtic Street<br/>Granada Hills, CA 91344",
+                  "license"=>"# 976255",
+                  "logo"=>'<img src="assets/images/logosize145.png" height="75px" width="75px" title="DynamoElectric Logo"/>'    )
+            
+        
+        
+    );
+    
 //$title, array $js, array $css, $body, array $links, array $cities, array $web_pages
 ///ECHOS all the pages when called 
-echo $head->html_loader($_GET['title'], $java_script,$css, $external_script, $links, $_GET['page'],  $cities );
+echo $head->html_loader($_GET['title'], $java_script,$css, $external_script, $links, $_GET['page'],  $cities, $company_info );

@@ -1,12 +1,11 @@
-<IfModule mod_rewrite.c>
-    
-    RewriteEngine On
-
-    # Redirect Trailing Slashes...
-
-</IfModule>
-
-AuthType Basic
-AuthName "dev"
-AuthUserFile "/home/dynamoelectric/.htpasswd"
-require valid-user
+#RewriteEngine On
+## Redirect Trailing Slashes...
+#
+##RewriteRule ^page/(.*)/(.*) index.php?page=$1&title=$2 [NC,L]
+##RewriteRule ^services/([0-9a-zA-Z]+)/([0-9a-zA-Z_-]+) /index.php?page=$1&title=$2 [NC,L]
+#
+#
+#AuthType Basic
+#AuthName "dev"
+#AuthUserFile "/home/dynamoelectric/.htpasswd"
+#require valid-user

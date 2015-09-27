@@ -9,6 +9,7 @@ class page_loader {
 
     public $_web_site_pages;
     public $_sub_links;
+    public $_comp_info;
 
     /*
      * HEAD
@@ -40,6 +41,16 @@ class page_loader {
             echo '<script src="' . $script . '"></script>';
         }
         ?>
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
             </head>
             <body role="document">  
         <?php
@@ -53,7 +64,7 @@ class page_loader {
         ?>
 
                 <!-- Static nav-bar -->
-                <div class="container">          
+                        
                     <nav class="navbar navbar-inverse navbar-static-top">
                         <div class="container">
                             <div class="navbar-header">
@@ -64,6 +75,11 @@ class page_loader {
                                     <span class="icon-bar"></span>
                                 </button>
                                 <a class="navbar-brand" href=".">Dynamoelectric Inc.</a>
+                     <a class="navbar-brand" href=""><i class="fa fa-facebook"></i></a>
+                     <a class="navbar-brand" href=""><i class="fa fa-twitter"></i></a>
+                     <a class="navbar-brand" href=""><i class="fa fa-yelp"></i></a>
+   
+                     
                             </div>
                             <div id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
@@ -108,18 +124,14 @@ class page_loader {
                                             }
                                             ?>
 
-                      <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                     <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                     <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                     <li><a href=""><i class="fa fa-youtube"></i></a></li>
-                     <li><a href=""><i class="fa fa-yelp"></i></a></li>
-                     <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                     <li><a href=""><i class="fa fa-rss-square"></i></a></li>
+                      
+                     
 
                      
                                 </ul>
+                            </div>
                                 </nav>
-                    
+                     <div class="container"> 
                                 <div class="row">
                                     <div class="col-lg-12">
 
@@ -152,7 +164,8 @@ class page_loader {
                                         </ol>
 
                                     </div>
-                                </div>         
+                                </div>  
+                     </div>
         <?php
         return;
     }
@@ -161,6 +174,8 @@ class page_loader {
         return $this->_web_site_pages;
     }
     
+    
+
   
       
     public function find_files($dir) {
@@ -177,6 +192,9 @@ class page_loader {
 
     public function body($body) {
         //If it os coming from index.php or www.domain.com give the body value the home.php value 
+        ?>
+                <div class="container body_conainer">
+        <?php        
         if (!isset($body)) {
             $body = "pages/home.php";
 
@@ -195,21 +213,46 @@ class page_loader {
                 include 'pages/404.php';
             }
         }
+        ?>
+                </div>         
+        <?php
         return $body;
     }
 
-    public function footer(array $cities) {
+    
+    
+    
+    
+    
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public function footer(array $cities, array $company_info) {
+        $this->_comp_info = $company_info;
+       
         $site_pages = $this->rteurn_pages();
 
 
 
         $footer = "";
         ?>
-                                <footer class="row">
-                                    <div class="col-lg-12">
-                                        <div class="row">
-                                            <div class="col-lg-4">
+                     <footer class="footer">
+                                <div class="container">
+                                <div class="row ">
+                                       
+                                            <div class="col-xs-6 col-md-4 city">
+                                                <h3>Service Areas</h3>   
                                                 <ul>
                                 <?php
                                 
@@ -217,13 +260,15 @@ class page_loader {
                                     
                                     ?>
 
-                                                        <li><?= $city ?></li>
+                                                    <li ><?= $city ?></li>
                                     <?php
                                 }
                                 ?>
                                                 </ul>      
                                             </div>
-                                            <div class="col-lg-4">
+                                        
+                                            <div class="col-xs-6 col-md-4 pages">
+                                                <h3>Pages</h3>
                                                 <ul>
                                 <?php
                                 sort($site_pages);
@@ -235,7 +280,7 @@ class page_loader {
 
                             <?php
                                    } else {
-
+                                       sort($web_page['subLinks']);
                                 foreach ($web_page['subLinks'] as $sublink) {
                                     ?>
                                   <li><a href="index.php?<?= strtolower($sublink['link']) ?>"><?= $sublink['title'] ?></a></li>
@@ -253,27 +298,85 @@ class page_loader {
         ?>
                                                 </ul>
                                             </div>
-                                            <div class="col-lg-4">
+                                            <div class="col-xs-6 col-md-4 pages">
+                                                
+                                                <?php
+                                                
+                                                       
+                                                
+                                                ?>
+                                                <h3>Our Company</h3>
+                                                <ul>
+                                                    <?php
+                                                        
+                                                           
+                                                    $info =  $this->return_comp_info();    
+                                                    
+                                                    ?>
+                                                    <li><h4>Email</h4></li>
+                                                    <li><a href="mailto:<?=$info['email'] ?>"><?= $info["email"] ?></a></li>
+                                                    <li><h4>Phone</h4></li>
+                                                    <li><?= $info['phone'] ?></li>
+                                                    <li><h4>Fax</h4></li>
+                                                    <li><?= $info['Fax'] ?></li>
+                                                    <li><h4>Company Address</h4></li>
+                                                    <li><?= $info['Company Address'] ?></li>
+                                                    <li>License <?= $info['license'] ?></li>
+                                                    <li><?= $info['logo'] ?></li>
+                                                        
+                                                </ul>
+                                            </div>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                            
+                                            
+                                        
+                                        </div>
+                                </div>
+                            </footer>
+                                    
+                    
 
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <span>Dynamoelectric All Rights Reserved <?php echo date("Y"); ?> &reg;</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </footer>
-                            </div>               
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+                            <script src="assets/js/owl.carousel.min.js"></script> 
                             <script src="assets/js/bootstrap.min.js"></script>   
+                                                   <script>
+ $(document).ready(function() {
+ 
+  $("#main_carousel").owlCarousel({
+ 
+      autoPlay: 3000, //Set AutoPlay to 3 seconds
+ 
+      items : 1,
+      itemsDesktop : [3000,3],
+      itemsDesktopSmall : [3000,3]
+ 
+  });
+ 
+});
 
-                            </body>
+</script>   
+                    </body>
                             </html>
                                                     <?php
                                                     return $footer;
                                                 }
 
-                                                public function html_loader($title, array $js, array $css, array $external_script, array $links, $body, array $cities) {
+                                     
+    public function return_comp_info(){
+        
+       foreach ($this->_comp_info as $k=> $info){
+            
+        }
+    return $info;
+     
+    }               
+ 
+                                                
+                                                public function html_loader($title, array $js, array $css, array $external_script, array $links, $body, array $cities, array $comp_info) {
 
                                                     $this->head($title, $js, $css, $external_script);
 
@@ -282,7 +385,7 @@ class page_loader {
                                                     $this->body($body);
 
 
-                                                    $this->footer($cities);
+                                                    $this->footer($cities , $comp_info);
                                                 }
 
                                             }

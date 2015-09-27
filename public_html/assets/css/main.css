@@ -7,20 +7,77 @@ and open the template in the editor.
     Created on : Sep 12, 2015, 9:46:33 AM
     Author     : sahakian
 */
-@import url(https://fonts.googleapis.com/css?family=Arbutus+Slab);
+@import url(https://fonts.googleapis.com/css?family=Archivo+Narrow);
 body{
-   font-family: 'Arbutus Slab', serif;
+  font-family: 'Archivo Narrow', sans-serif;
  
 }
-.container{
-    
-    width: 85%;
-    margin: 0 auto;
-    text-align: center;
+.body_conainer{
+  min-height: 200px;
 }
-.body_area{
+/*.body_area{
     height: 800px;
-}
+}*/
 #go_right{
     margin-right: 80px;
+}
+.city ul li{
+    list-style: none;
+    line-height: 15px;
+        font-size: 9pt;
+
+    
+}
+.rights{
+    text-align: center;
+}
+
+.pages{
+    font-size: 9pt;
+  
+}
+
+.pages ul li{
+        list-style: none;
+        line-height: 15px;
+    }
+.pages ul li a{
+        color: #fff;
+   
+    }
+.pages ul li a:hover{
+        color: greenyellow !important;
+   
+    }    
+.pages ul li a:visited{
+        color: #fff;
+   
+    }    
+    
+    
+    .footer{
+        background-color: #222222;
+        margin-top: 40px;
+        padding:15px 0 4px 0;
+        color:  #fff;
+        margin-bottom: 0;
+       
+    }
+    .footer h3{
+        
+    }
+    
+    .home_para{
+        text-align: justify;
+    }
+    .page-header{
+        text-align: center;
+    }
+  #main_carousel .item{
+  margin: 3px;
+}
+#main_carousel .item img{
+  display: block;
+  width: 100%;
+  height: auto;
 }
