@@ -344,19 +344,29 @@ class page_loader {
                             <script src="assets/js/owl.carousel.min.js"></script> 
                             <script src="assets/js/bootstrap.min.js"></script>   
                                                    <script>
- $(document).ready(function() {
- 
-  $("#main_carousel").owlCarousel({
- 
-      autoPlay: 3000, //Set AutoPlay to 3 seconds
- 
-      items : 1,
-      itemsDesktop : [3000,3],
-      itemsDesktopSmall : [3000,3]
- 
-  });
- 
-});
+
+
+    $(document).ready(function() {
+     
+      $("#main_carousel").owlCarousel({
+     
+          navigation : true, // Show next and prev buttons
+          slideSpeed : 300,
+          paginationSpeed : 400,
+          singleItem:true
+     
+          // "singleItem:true" is a shortcut for:
+          // items : 1, 
+          // itemsDesktop : false,
+          // itemsDesktopSmall : false,
+          // itemsTablet: false,
+          // itemsMobile : false
+     
+      });
+     
+    });
+
+
 
 </script>   
                     </body>

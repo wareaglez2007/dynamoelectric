@@ -8,7 +8,7 @@
 // Report all errors except E_NOTICE
 error_reporting(E_ALL & ~E_NOTICE);
 
-define("TEST_ENV",FALSE);
+define("TEST_ENV",true);
 
 if(defined("TEST_ENV") && TEST_ENV){
     include '/private/functions/page_loader.php';
